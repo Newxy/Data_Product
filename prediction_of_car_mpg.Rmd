@@ -1,0 +1,42 @@
+---
+title: "Prediction of Car MPG"
+author: "yx"
+date: "April 21, 2016"
+output: html_document
+runtime: shiny
+---
+
+## Description
+
+Miles per gallon (MPG) is an important factor when custoers decide which car to buy. This application is to predict MPG based on a linear regression model developed using mtcars dataset.
+
+
+## Mtcars Dataset and Prediction Model
+
+The mtcars dataset within R is used to develop the linear regression model for predicting MPG. User can select the number of observations to view in the interface and click the button of "Update Observations" to view the sample mtcars data.
+
+Below lists the meaning of each attribute:
+
+* mpg:	 Miles/(US) gallon
+* cyl:	 Number of cylinders
+* disp:	 Displacement (cu.in.)
+* hp:	   Gross horsepower
+* drat:	 Rear axle ratio
+* wt: 	 Weight (lb/1000)
+* qsec:	 1/4 mile time
+* vs: 	 V/S
+* am:	   Transmission (0 = automatic, 1 = manual)
+* gear:	 Number of forward gears
+* carb:	 Number of carburetors
+
+A stepwise selection method is used to select the most influential predictors on MPG. Based on this result, three variables are selected in the final regression model, that is, weight, 1/4 mile time, and transimission. The final regression model is
+
+MPG=9.6178-3.9165*wt+1.2259*qsec+2.9358*am
+
+This model is implemented in the server.R file.
+
+## MPG Prediction
+
+Users are required to input three variables, weight, 1/4 mile time, and transimission, to obtain a prediction of MPG. The variable weight has a range from 2 to 5 with a default value of 3.5 and step size of 0.5. Two transimission modes are allowed, that is, automatic and manual. 1/4 mile time can be a value between 14.5 and 22.5 with a default value of 18. Once user input these three values and click the "Predict" button, the input parameters and the corresponding prediction can be displayed in the right-hand side of user interface.
+
+
